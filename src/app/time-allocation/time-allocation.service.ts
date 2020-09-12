@@ -24,6 +24,6 @@ export class TimeAllocationService {
       .subscribe(async response => {
         await this.$store.dispatch('loadCalendarDays', response);
       });    
-    }, 500)
+    }, 250)
   }
 }
