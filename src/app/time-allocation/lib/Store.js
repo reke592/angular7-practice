@@ -1,14 +1,17 @@
 /**
- * centralise store for time allocation module.
+ * Centralized pubsub store for angular module components
+ * Erric Rapsing <erric.rapsing@gmail.com>
  * 
  * @param state initial state
- * @param actions function dictionary
- * @param mutations function dictionary
- * TODO: create getters
+ * @param actions dictionary
+ * @param getters dictionary
+ * @param mutations dictionary
+ * TODO: test getters
  */
-module.exports = function({ state, actions, mutations }) {
+module.exports = function({ state, actions, getters, mutations }) {
     let _state = state || {};
     let _actions = actions || {};
+    let _getters = getters || {};
     let _mutations = mutations || {};
     let _listeners = {};
     
@@ -84,6 +87,17 @@ module.exports = function({ state, actions, mutations }) {
         }
     }
 
+    function get(key, param) {
+        if(!_getters[key])
+            throw Error(`unkown store getter ${key}.`);
+        try {
+            result = _getters[key]({ state: _state, payload: param, commit, emit });
+            return Promise.resolve(result);
+        } catch(e) {
+            return Promise.reject(e);
+        }
+    }
+
     // run cb in event loop, use this to avoid race condition
     function delayLoad(cb) {
         setTimeout(cb, 0);
@@ -122,6 +136,7 @@ module.exports = function({ state, actions, mutations }) {
         dispatch,
         delayLoad,
         emit,
+        get,
         on,
         subscribe,
         unsubscribe,
