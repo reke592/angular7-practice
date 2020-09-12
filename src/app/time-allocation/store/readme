@@ -1,0 +1,4 @@
+... here what we do is some sort of centralise strore,
+we will try to mimic the vuex store pattern. (dispatch action, commit mutations)
+we will also try to add some pattern from the event sourcing architecture,
+to sync the components and optimize the backend request.

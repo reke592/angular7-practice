@@ -1,0 +1,103 @@
+$for-approval: rgb(142, 194, 255);
+$approved: rgb(173, 255, 207);
+$disapproved: rgb(255, 191, 191);
+$mismatched: rgb(255, 194, 153);
+$today: rgb(24, 120, 199);
+$normal: rgb(51, 51, 51);
+$dark: rgb(29, 29, 29);
+$disabled: rgb(40, 40, 40);
+$light: rgb(233, 233, 233);
+$dim: rgb(100, 100, 100);
+$dimension: 5em;
+$headerHeight: 2em;
+$weekday: $normal;
+$weekend: rgb(71, 71, 71);
+
+.wrapper {
+    width: 100%;
+    height: auto;
+    overflow-x: auto;
+}
+
+.calendar-container {
+    background-color: $dark;
+    table-layout: fixed;
+}
+
+.calendar-container tbody {
+    overflow-y: auto;
+    display: block;
+    height: ($dimension * 6) + $headerHeight;
+}
+
+.calendar-container thead {
+    display: block;
+    color: $light;
+    font-family: calibri, "Times New Roman";
+}
+
+.calendar-container th {
+    width: $dimension * 1.5;
+    height: $headerHeight;
+}
+
+.calendar-card {
+    min-width: $dimension * 1.5;
+    min-height: $dimension;
+    height: $dimension;
+}
+
+.calendar-card > div {
+    font-size: 0.70em;
+}
+
+.calendar-month {
+    margin: 1em;
+    font-size: 1.5em;
+}
+
+.weekday {
+    background-color: $weekday;
+}
+
+.weekend {
+    background-color: $weekend;
+}
+
+.calendar-card.current-day > div {
+    border: 1px solid $today;
+    padding: 4px !important;
+}
+
+.current-month > * > span.date-label {
+    color: #ffffff;
+}
+
+.other-month {
+    background-color: $disabled;
+}
+
+.other-month > * > span.date-label {
+    color: $dim;
+}
+
+.calendar-card > div:hover {
+    border-left: 1px solid $light;
+    border-bottom: 1px solid $light;
+    padding-left: 4px;
+}
+
+.calendar-card > div {
+    padding: 5px;
+    height: 100%;
+}
+
+.hidden-scroll-y {
+    -ms-overflow-style: none;
+    scrollbar-width: 10px;
+    overflow: hidden;
+}
+
+.hidden-scroll-y::-webkit-scrollbar {
+    display: none;
+}

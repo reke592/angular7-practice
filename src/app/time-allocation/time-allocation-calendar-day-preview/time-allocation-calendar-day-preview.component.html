@@ -1,0 +1,4 @@
+<div [ngClass]="calendarMetaClass()">
+  <p *ngIf="preview.transaction_no">TN#: {{ preview.transaction_no }}</p>
+  <p *ngIf="preview.allocations">Allocations: {{ preview.allocations }}</p>
+</div>

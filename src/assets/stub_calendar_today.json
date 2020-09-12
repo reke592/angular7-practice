@@ -1,0 +1,32 @@
+[
+    {
+        "date": "2020-09-05",
+        "allocations": 4,
+        "transaction_no": "00001",
+        "approval_status_id": 1
+    },
+    {
+        "date": "2020-09-06",
+        "allocations": 2,
+        "transaction_no": "00002",
+        "approval_status_id": 1
+    },
+    {
+        "date": "2020-09-15",
+        "allocations": 2,
+        "transaction_no": "00003",
+        "approval_status_id": 1
+    },
+    {
+        "date": "2020-09-18",
+        "allocations": 3,
+        "transaction_no": "00004",
+        "approval_status_id": 1
+    },
+    {
+        "date": "2020-10-02",
+        "allocations": 4,
+        "transaction_no": "00005",
+        "approval_status_id": 1
+    }
+]

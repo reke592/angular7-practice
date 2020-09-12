@@ -1,0 +1,43 @@
+<!-- <p>
+  time-allocation-calendar
+</p> -->
+
+<!-- <time-allocation-calendar-day-preview date="test"></time-allocation-calendar-day-preview> -->
+
+<div class="wrapper">
+  <table id="calendar" class="calendar-container">
+    <thead>
+      <tr>
+        <th colspan=2>
+          <button style="float: right;" (click)="prevMonth()">&lt;</button>
+        </th>
+        <th colspan=3>
+          <span class="calendar-month">{{ _selectedMonth.format('MMMM YYYY') }}</span>
+        </th>
+        <th colspan=2>
+          <button style="float: left;" (click)="nextMonth()">&gt;</button>
+          <button style="float: right;" (click)="reset()">Refresh</button>
+        </th>
+      </tr>
+      <tr>
+        <th>Sunday</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+      </tr>
+    </thead>
+    <tbody class="hidden-scroll-y" (scroll)="onCalendarScroll($event)">
+      <tr *ngFor="let week of calendar; index as i">
+        <td *ngFor="let day of week.days; index as j" [ngClass]="calendarCardClass(j, day)">
+          <div>
+            <span class="date-label">{{ day.format("D") }}</span>
+            <time-allocation-calendar-day-preview date='{{ day.format("YYYY-MM-DD") }}'></time-allocation-calendar-day-preview>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

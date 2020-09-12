@@ -1,0 +1,14 @@
+$meta_foreground: #f1c284;
+$meta_other_month: #6d5536;
+
+.calendar-day-meta > p {
+    margin: 3px;
+    color: $meta_foreground;
+    font-family: sans-serif;
+}
+
+.other-month.calendar-day-meta > p {
+    margin: 3px;
+    color: $meta_other_month;
+    font-family: sans-serif;
+}
