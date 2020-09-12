@@ -53,9 +53,9 @@ export class TimeAllocationCalendarComponent implements OnInit {
     
     // run in event loop to avoid race conditions
     this.service.$store.delayLoad(() => {
-      let month = month_ || new Date().getMonth();
+      let month = (month_ || new Date().getMonth()) + 1;
       let year = year_ || new Date().getFullYear();
-      let target = new Date(`${year}-${month + 1}-01`);
+      let target = new Date(`${year}-${month}-01`);
   
       let start_week = moment(target).startOf('month').week();
       let end_week = start_week + 6;
@@ -67,7 +67,7 @@ export class TimeAllocationCalendarComponent implements OnInit {
         })
       }
 
-      this.service.$store.dispatch('navigateCalendarMonth', month);
+      this.service.$store.dispatch('navigateCalendarMonth', month - 1);
       this.service.getRange(
         moment(target).week(start_week).startOf('week').clone(),
         moment(target).week(end_week).endOf('week').clone()
